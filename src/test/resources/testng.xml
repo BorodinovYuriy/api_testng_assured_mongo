@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AQA Suite">
+    <test name="AQA Tests">
+        <classes>
+            <class name="aqa.test.aqa_test.AQAAdminTest"/>
+            <!-- Добавьте другие классы тестов здесь -->
+        </classes>
+    </test>
+</suite>
