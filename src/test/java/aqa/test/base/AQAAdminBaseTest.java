@@ -77,7 +77,6 @@ public class AQAAdminBaseTest {
         authRequestLogin.setUsername(login);
         authRequestLogin.setPassword(password);
 
-        // Используем Response для получения полного ответа
         Response response = given()
                 .spec(requestSpec)
                 .body(authRequestLogin)

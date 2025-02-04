@@ -47,7 +47,6 @@ public class AQAAdminTest extends AQAAdminBaseTest {
                 Objects.requireNonNull(collection.find(new Document("username", newUsername)).first())
         );
 
-        // 6. Вывод в логи
         System.out.println("User added successfully and verified in database.");
     }
 
