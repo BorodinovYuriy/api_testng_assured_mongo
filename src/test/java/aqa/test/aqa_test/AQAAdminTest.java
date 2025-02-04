@@ -1,20 +1,21 @@
 package aqa.test.aqa_test;
 
-
+import aqa.test.aqa_test.steps.UserAuthValidatror;
 import aqa.test.base.AQAAdminBaseTest;
-import io.restassured.http.ContentType;
-import org.example.aqa.pojo.AuthRequestLogin;
+import com.mongodb.client.MongoCollection;
+import io.qameta.allure.Step;
+import org.bson.Document;
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static io.restassured.RestAssured.given;
 
 public class AQAAdminTest extends AQAAdminBaseTest {
 
-
-    @Test(description = "Добавление юзера")
+    @Test(description = "Авторизация на портале - (сверка с базой)")
+    @Step("Сверка авторизованного пользователя с базой")
+    public void authUser(){
+        MongoCollection<Document> collection = database.getCollection(mongoCollectionName);
+        UserAuthValidatror.validateUserInMongoDB(login, authResponse, collection);
+    }
+    @Test(description = "Добавление юзера()")
     public void addUser(){}
 
     @Test(description = "Добавление вопроса")
@@ -41,15 +42,5 @@ public class AQAAdminTest extends AQAAdminBaseTest {
     @Test(description = "Авторизация с неверным логином или паролем")
     public void wrongCredential(){}
 
-
-
-
-
-
-
-
-
-
-
-
 }
+
