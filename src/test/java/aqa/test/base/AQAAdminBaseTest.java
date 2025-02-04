@@ -2,9 +2,7 @@ package aqa.test.base;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -13,14 +11,11 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.bson.Document;
 import org.example.aqa.pojo.AuthRequestLogin;
 import org.example.aqa.pojo.AuthResponse;
 import org.example.utils.ConfigurationReader;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -106,7 +101,5 @@ public class AQAAdminBaseTest {
         mongoClient.close();
         System.out.println("MongoDB connection closed.");
     }
-
-
 
 }
